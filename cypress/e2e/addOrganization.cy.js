@@ -13,9 +13,11 @@ describe("add new organization tests", () => {
         loginPage.clearFields();
         loginPage.login("nemanjakasikovic95@gmail.com", "nemanja95");
     })
-    it("add new organization", () => {
+    it.only("add new organization", () => {
         addOrganization.newOrganization(userData.randomTitle);
-        cy.url().should("contain", "organizations");
+        cy.url().should("contain", "/organizations");
+        
+        
     })
     it("add new organization with intercept", () => {
         cy.intercept({
@@ -26,6 +28,7 @@ describe("add new organization tests", () => {
         cy.wait("@validNewOrganization").then((interception) => {
             console.log(interception);
             expect(interception.response.statusCode).to.be.equal(201);
+            expect(interception.response.statusCode).not.to.be.equal(401);
             })
     })
 })

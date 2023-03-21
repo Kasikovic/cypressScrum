@@ -1,4 +1,5 @@
 class AddOrganization {
+    
     get addNewOrganization () {
         return cy.get('div[class="vs-c-my-organization vs-c-my-organization--add-new not-sortable"]')
     }
@@ -6,31 +7,30 @@ class AddOrganization {
     get addOrganizationName () {
         return cy.get("input");
     }
-
+    
     get addOrgModal() {
         return cy.get(".vs-c-modal")
     }
 
+    get addOrgModalHeading() {
+        return this.addOrgModal.find("h2")
+    }
+    
     get nextButton() {
         return this.addOrgModal.find("button").last();
     }
 
+    get okOrgModal() {
+        return cy.get(".vs-c-modal__body")
+    }
     
-    
-
-    // get nextButton () {
-    //     return cy.get("button[name='next_btn']");
-    // }
-
-    // get createButton () {
-    //     return cy.get("button[name='next_btn']");
-    // }
     get okButton() {
-        return cy.get('button[class="vs-c-btn vs-c-btn--primary vs-c-btn--lg vs-u-font-sm vs-c-modal--features-confirm-button"]');
+        return this.okOrgModal.find("button").last();
     }
 
     newOrganization(name) {
         this.addNewOrganization.click();
+        this.addOrgModalHeading.should("contain", "New Organization")
         this.addOrganizationName.type(name);
         this.nextButton.click();
         this.nextButton.click();

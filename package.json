@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test:headed": ".\\node_modules\\.bin\\cypress open",
-    "test:headless:chrome": ".\\node_modules\\.bin\\cypress run --browser chrome"
+    "test:headed": "./node_modules/.bin/cypress open",
+    "test:headless:chrome": "./node_modules/.bin/cypress run --browser chrome"
   },
   "author": "",
   "license": "ISC",
