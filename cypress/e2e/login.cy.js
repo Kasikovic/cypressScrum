@@ -46,7 +46,7 @@ describe("login tests scrum", () => {
         loginPage.login("nemanjakasikovic95@gmail.com", "nemanja95");
         cy.url().should("not.include", "/login");
     })
-    it.only("login with intercept" , () => {
+    it("login with intercept" , () => {
         cy.intercept({
             method: "POST",
             url: Cypress.env("apiUrl") + "/v2/login"
