@@ -5,6 +5,9 @@ module.exports = defineConfig({
     setupNodeEvents(on, config) {
       // implement node event listeners here
     },
-    baseUrl: "https://cypress.vivifyscrum-stage.com"
+    baseUrl: "https://cypress.vivifyscrum-stage.com",
+    env: {
+      apiUrl: "https://cypress-api.vivifyscrum-stage.com/api"
+    }
   },
 });
